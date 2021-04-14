@@ -91,10 +91,13 @@ def play(chordlist):
                 should_go_next = current_keytype != np.keyconfig[kb].keytype
                 current_keytype = np.keyconfig[kb].keytype#ここも気持ち悪い　やはりkeyconfigは外部で持つべき
                 if should_go_next:
-                    next_np = NotesPlayer(chordlist[i+1])
-                    _start_thread(target=next_np.play,args=(kb,))
-                    print(chordlist[i+1])
-                    break
+                    try:
+                        next_np = NotesPlayer(chordlist[i+1])
+                        _start_thread(target=next_np.play,args=(kb,))
+                        print(chordlist[i+1])
+                        break
+                    except IndexError:
+                        print("finish")
+                        exit()
                 _start_thread(target=np.play,args=(kb,))
                 print(chordlist[i])
-            
