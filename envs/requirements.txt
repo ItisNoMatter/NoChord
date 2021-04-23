@@ -1,7 +1,15 @@
+certifi==2020.12.5
 chardet==4.0.0
+docutils==0.17.1
+idna==2.10
 joblib==1.0.1
+Kivy==2.0.0
+Kivy-Garden==0.1.4
 more-itertools==8.7.0
 music21==6.7.1
 pygame==2.0.1
+Pygments==2.8.1
 readchar==3.0.4
+requests==2.25.1
+urllib3==1.26.4
 webcolors==1.11.1
