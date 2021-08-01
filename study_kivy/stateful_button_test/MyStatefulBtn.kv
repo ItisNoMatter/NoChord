@@ -1,0 +1,32 @@
+#:kivy 2.0.0
+# File name:statefulbtn.py
+<LeftBtn>:
+    Button:
+        size:   100,100
+        pos:    50,50
+        text:   "Kivy"
+        font_size:  40
+        on_press: root.play_sound()
+
+<RightBtn>:
+    Button:
+        size:   100,100
+        pos:    300,50
+        text:   "Kivy"
+        font_size:  40
+        on_press: root.play_sound()
+
+<NoChord>:
+    Button:
+        size:   100,100
+        pos:    500,50
+        text:   "Right"
+        font_size:  40
+        on_press: root.play_sounds(1)
+    
+    Button:
+        size:   100,100
+        pos:    50,50
+        text:   "Left"
+        font_size:  40
+        on_press: root.play_sound()
