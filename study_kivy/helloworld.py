@@ -1,5 +1,5 @@
 import kivy
-kivy.require('2.0.0')
+kivy.require('1.9.0')
 
 from kivy.app import App
 from kivy.uix.label import Label
