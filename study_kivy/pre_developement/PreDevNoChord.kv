@@ -1,0 +1,85 @@
+#:kivy 2.0.0
+# File name:screen_test.py
+#:import hex kivy.utils.get_color_from_hex
+<ScreenManager>:
+    StartScreen:
+    PlayModeScreen:
+    EditModeScreen:
+
+<TranditionButton@Button>:
+    background_normal: ''
+    background_down: ''
+    background_color:hex('ffba40')
+    font_size_hint: 64
+    on_press: self.background_color[3] = 0.5
+    on_release:self.background_color[3] = 1
+<StartScreen>:
+    name: "start_scr"
+    BoxLayout:
+        padding:50
+        spacing:10
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        TranditionButton:
+            text: 'Goto play-mode'
+            on_release: 
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'playmode_scr'
+        TranditionButton:
+            text: 'Goto edit-mode'
+            on_release: 
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'editmode_scr'
+
+<PlayButton@Button>:
+    background_normal: ''
+    background_down: ''
+    background_color:hex('ffba40')
+    text: 'current-chord'
+    on_press:
+        self.background_color[3] = 0.5
+    on_release: self.background_color[3] = 1.0
+    size_hint_y:5
+
+<PlayModeScreen>:
+    name: "playmode_scr"
+    BoxLayout:
+        orientation: "vertical"
+        padding:50
+        spacing:10
+        PlayButton:
+            name:"playbtn_0"
+            text: 'current-chord'
+            on_press:
+                app.pressed_button_id = 0
+                app.play_sound()
+            
+        PlayButton:
+            name:"playbtn_1"
+            text: 'Next-chord'
+            on_press:
+                app.pressed_button_id = 1
+                app.play_sound()  
+        Button:
+            text: 'Back'
+            size_hint_y:1
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'start_scr'
+
+<EditModeScreen>:
+    name: "editmode_scr"
+    BoxLayout:
+        orientation: "vertical"
+        padding:50
+        spacing:10
+        Button:
+            text: 'Back'
+            size_hint_y:1
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'start_scr'
