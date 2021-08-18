@@ -1,0 +1,17 @@
+#:kivy 2.0.0
+# File name:main.py
+
+<PlayButton@Button>:
+
+
+BoxLayout:
+    PlayButton:
+        text:"button1"
+        on_press:
+            app.pressed_button_id = 0
+            app.play_sound()
+    PlayButton:
+        text:"button2"
+        on_press:
+            app.pressed_button_id = 1
+            app.play_sound()
